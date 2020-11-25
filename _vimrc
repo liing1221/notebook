@@ -1,6 +1,7 @@
 set nocompatible          " 去除VI一致性，避免冲突与副作用，必须要添加（网上参考的）
 filetype off              " 必须要添加
 
+
 " set rtp+=~/.vim/bundle/Vundle.vim   "  设置运行时路径，包括Vundle和初始化相关的runtime path
 set rtp+=$HOME/.vim/bundle/Vundle.vim   "  设置运行时路径，包括Vundle和初始化相关的runtime path(windows下设置方法)
 " 使用该配置文件前，请先安装vundle,在终端输入：git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/Vundle.vim
@@ -146,9 +147,9 @@ set autoindent                             " 设置自动缩排
 set backspace=2                            " 设置退格键来删除任意字符(2-删除任意字符,0或1-仅删除刚输入字符,而无法删除原有字符
 set expandtab                              " 设置Tab键替换为空格(noexpandtab 不用空格代替Tab),此时输入真正Tab则输入Ctrl+v,Tab
 set smarttab                               " 解决shiftwidth和tabstop不等时的麻烦,行首时,Tab宽度为shiftwidth空白,其他地方按tabstop和softtabstop处理        
-set tabstop=4                              " 设置Tab键宽度为4
-set shiftwidth=4                           " 此两条,设置统一缩进宽度为4
-set softtabstop=4
+set tabstop=4                              " 设置Tab键宽度为4空格
+set shiftwidth=4                           " 表示每一级缩进的长度,一般设置成跟 softtabstop 一样。此两条,设置统一缩进宽度为4
+set softtabstop=4                          "表示在编辑模式的时候按退格键的时候退回缩进的长度,当使用 expandtab 时特别有用。
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936       " 此两条，设置默认解码
 set fileencodings=ucs-bom,utf-8,chinese,cp936      " Vim启动时会按照该处的编码方式列表逐一检测打开文件的字符编码方式，并将fileencoding设置为检测到的编码方式。因此最好将unicode编码至于最前面。
 set encoding=utf-8                         " Vim内部使用的字符编码方式(vim的缓冲区、菜单文本、消息文本等)
@@ -156,6 +157,11 @@ set termencoding=utf-8                     " 终端环境下使用Vim，设置�
 set fileencoding=utf-8                     " Vim中当前编辑的文件的字符编码方式:vim保存文件时也遵循该编码方式
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
+
+" noexpandtab 则是用制表符表示一个缩进。 
+" cindent:是特别针对C语言自动缩进
+" expandtab：用空格代替tab
+
 
 let &t_SI.= "\e[5 q"
 let &t_SR.= "\e[4 q"                       " For iTerm2 on OS X (官方的名称）
